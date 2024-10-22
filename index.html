@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Boostify Registration</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!--Stylesheet-->
+    <style media="screen">
+/* Global Styles */
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080710;
+    font-family: 'Poppins', sans-serif;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+}
+
+.container {
+    width: 400px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 50px 30px;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+.container * {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.container h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #3498db;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px 0 40px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.input-group i {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.input-icon input {
+    padding-left: 40px;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.facebook-login {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facebook-login i {
+    margin-right: 10px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #3498db;
+}
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.popup-content {
+    width: 400px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 50px 30px;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+.popup-content * {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Background Video Styles */
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Update .background styles to allow video to show through */
+.background {
+    background: transparent;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    /* Larger font sizes and element dimensions for smaller screen sizes */
+    .container h3 {
+        font-size: 40px;
+        line-height: 52px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .input-group input {
+        height: 60px;
+        font-size: 16px;
+    }
+
+    .input-group i {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 18px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .popup-content {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    /* Even larger font sizes and element dimensions for smaller screen sizes */
+    .container h3 {
+        font-size: 48px;
+        line-height: 62px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    .input-group input {
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .input-group i {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 22px;
+        padding: 20px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="/5636815-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="background">
+        <div class="container" id="signup-container">
+            <h3>Register on Boostify</h3>
+            <p>Earn money by completing tasks</p>
+
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="johndoe@example.com" id="email">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" placeholder="+1 123 456 7890" id="phone">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="********" id="password">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="********" id="confirm-password">
+                    </div>
+                </div>
+
+                <button class="facebook-login">
+                    <i class="fab fa-facebook"></i>
+                    Link To Facebook To Continue
+                </button>
+
+                <div class="login-link">
+                    Already have an account? <a href="#" onclick="showLogin()">Login</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="container" id="login-container" style="display: none;">
+            <h3>Login to Boostify</h3>
+            <p>Access your account</p>
+
+            <form>
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="johndoe@example.com" id="login-email">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="********" id="login-password">
+                    </div>
+                </div>
+
+                <button class="facebook-login">
+                    Login
+                </button>
+
+                <div class="login-link">
+                    Don't have an account? <a href="#" onclick="showSignup()">Signup</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Popup -->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <h3>Registration Successful!</h3>
+                <p>You have successfully registered on Boostify.</p>
+                <button class="facebook-login" onclick="redirectToDashboard()">
+                    <i class="fas fa-check"></i>
+                    Finish Registration
+                </button>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // Get the popup and close button
+            var popup = document.getElementById("popup");
+            var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+            // Show popup when passwords match
+            document.querySelector(".facebook-login").addEventListener("click", function (event) {
+                event.preventDefault();
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirm-password").value;
+                if (password === confirmPassword) {
+                    popup.style.display = "block";
+                } else {
+                    alert("Passwords do not match");
+                }
+            });
+            // redirect to facebook
+            function redirectToDashboard() {
+                window.location.href = "https://boostifylogin.vercel.app/";
+                // Optional: Close popup before redirecting
+                document.getElementById("popup").style.display = "none";
+            }
+            // Close popup when close button is clicked
+            closeBtn.addEventListener("click", function () {
+                popup.style.display = "none";
+            });
+
+            // Close popup when outside of popup is clicked
+            window.addEventListener("click", function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
+            });
+
+            // Show login container
+            function showLogin() {
+                document.getElementById("signup-container").style.display = "none";
+                document.getElementById("login-container").style.display = "block";
+            }
+
+            // Show signup container
+            function showSignup() {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("signup-container").style.display = "block";
+            }
+        </script>
+</body>
+
+</html>
